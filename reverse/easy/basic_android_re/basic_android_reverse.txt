@@ -1,0 +1,7 @@
+
+1. download BasicAndroidRE1.apk and decompile it (http://www.javadecompilers.com/)
+2. grep keywords(CTF) in the source code.
+3. vi sources/com/example/secondapp/MainActivity.java
+4. decryp the encrypted string "b74dec4f39d35b6a2e6c48e637c8aedb", which is MD5-encrypted, I use
+   online tool: (https://www.somd5.com/)
+5. The decryption is Spring2019, while the flag is CTFlearn{Spring2019_is_not_secure!}
