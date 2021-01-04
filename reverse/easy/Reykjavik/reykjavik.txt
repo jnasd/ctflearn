@@ -1,0 +1,68 @@
+
+1. gdb ./Reykjavik
+2. b main
+3. run CTFlearn{aaaaaaaa}
+4. b *0x0000555555555080 	(strcmp@plt)
+5. c
+6. info reg
+7. dump r13 (I don't know what r13 is, just try and succeed)
+
+
+
+kali@kali:~/Desktop/Reykjav$ gdb ./Reykjavik
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from ./Reykjavik...
+(No debugging symbols found in ./Reykjavik)
+
+(gdb) b main
+Breakpoint 1 at 0x10a0
+
+(gdb) run CTFlearn{aaaaaaaa}
+Starting program: /home/kali/Desktop/Reykjav/Reykjavik CTFlearn{aaaaaaaa}
+
+Breakpoint 1, 0x00005555555550a0 in main ()
+
+(gdb) b *0x0000555555555080
+Breakpoint 2 at 0x555555555080
+
+(gdb) c
+Continuing.
+Welcome to the CTFlearn Reversing Challenge Reykjavik v2: CTFlearn{aaaaaaaa}
+Compile Options: ${CMAKE_CXX_FLAGS} -O0 -fno-stack-protector -mno-sse
+
+
+Breakpoint 2, 0x0000555555555080 in strcmp@plt ()
+
+(gdb) info reg
+rax            0xffffff7d          4294967165
+rbx            0x0                 0
+rcx            0x16                22
+rdx            0x76304c5f6579457b  8516390867965658491
+rsi            0x7fffffffe536      140737488348470
+rdi            0x7fffffffe110      140737488347408
+rbp            0x7fffffffe536      0x7fffffffe536
+rsp            0x7fffffffe108      0x7fffffffe108
+r8             0x47                71
+r9             0x4d                77
+r10            0x7fffffffe536      140737488348470
+r11            0x246               582
+r12            0x5555555551f0      93824992236016
+r13            0x7fffffffe110      140737488347408
+r14            0x0                 0
+r15            0x0                 0
+rip            0x555555555080      0x555555555080 <strcmp@plt>
+eflags         0x286               [ PF SF IF ]
+cs             0x33                51
+ss             0x2b                43
+ds             0x0                 0
+es             0x0                 0
+fs             0x0                 0
+gs             0x0                 0
+
+(gdb) x /32s 0x7fffffffe110
+0x7fffffffe110: "CTFlearn{Eye_L0ve_Iceland_}"
+0x7fffffffe12c: "UU"
+0x7fffffffe12f: ""
+.......................
