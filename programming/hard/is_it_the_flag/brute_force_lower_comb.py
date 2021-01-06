@@ -1,6 +1,5 @@
 import itertools
 
-# Brute force to match the hashCode, needs about 100 seconds to running the program
 
 #define CTFDEBUG
 
@@ -11,7 +10,9 @@ def hashCode(value):
 			h = 31*h + ord(value[i])
 	return h
 
-# emunate for every possible combination
+# emunate for every possible combination, 'cobinations_with_replacement' will produce very
+# lesser numbers of 'product',  sometimes, it saves time and succeed
+# but this time, it will fail.
 for x in itertools.combinations_with_replacement("0123456789abcdefghijklmnopqrstuvwxyz", 6):
     alice = "".join(x)
     if (not alice.isalpha()):
