@@ -1,0 +1,61 @@
+
+
+1. $ strings Hey_You.png
+
+https://mega.nz/file/wZw2nAhS#i3Q0r-R8psiB8zwUrqHTr661d8FiAS1Ott8badDnZkoH
+You_Still_Here/Nothing_Here_1
+You_Still_Here/Nothing_Here_10
+You_Still_Here/Nothing_Here_11
+
+2. download another png from the link: 
+https://mega.nz/file/wZw2nAhS#i3Q0r-R8psiB8zwUrqHTr661d8FiAS1Ott8badDnZkoH
+The file names Only_Few_Steps.jpg
+
+3. $ binwalk Only_Few_Steps.jpg                        
+
+DECIMAL       HEXADECIMAL     DESCRIPTION
+--------------------------------------------------------------------------------
+0             0x0             JPEG image data, JFIF standard 1.01
+30            0x1E            TIFF image data, little-endian offset of first image directory: 8
+426           0x1AA           Copyright string: "Copyright (c) 1998 Hewlett-Packard Company"
+141318        0x22806         RAR archive data, version 5.x
+
+4. $ dd if=Only_Few_Steps.jpg of=1.rar skip=141318 bs=1
+194041+0 records in
+194041+0 records out
+194041 bytes (194 kB, 189 KiB) copied, 0.395297 s, 491 kB/s
+
+5. $ file 1.rar                 
+1.rar: RAR archive data, v5
+
+6. $ unrar e ./1.rar        
+
+UNRAR 6.00 freeware      Copyright (c) 1993-2020 Alexander Roshal
+
+
+Extracting from ./1.rar
+
+Extracting  YouWon(Almost).jpg                                        OK 
+All OK
+
+7. $ strings YouWon\(Almost\).jpg|more                 
+JFIF
+;CREATOR: gd-jpeg v1.0 (using IJG JPEG v62), quality = 80
+......
+%&'()*456789:CDEFGHIJSTUVWXYZcdefghijstuvwxyz
+        #3R
+&'()*56789:CDEFGHIJSTUVWXYZcdefghijstuvwxyz
+......
+CTF{VmtaU1IxUXhUbFZSYXpsV1RWUnNRMVpYZEZkYWJFWTJVVmhrVlZGVU1Eaz0=)
+
+
+8. decode:
+VkZSR1QxTlVRazlWTVRsQ1ZXdFdabEY2UVhkVVFUMDk=
+decode:
+VFRGT1NUQk9VMTlCVWtWZlF6QXdUQT09
+decode:
+TTFOSTBOU19BUkVfQzAwTA==
+decode:
+M1NI0NS_ARE_C00L
+
+The flag is: M1NI0NS_ARE_C00L
