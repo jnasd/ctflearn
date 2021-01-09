@@ -1,0 +1,41 @@
+
+1. $ strings Minions1.jpeg | more
+8BIM
+myadmin
+
+######### Notice myadmin ##########
+
+2. $ exiftool ./Minions1.jpeg                                                                                            130 ⨯
+ExifTool Version Number         : 12.13
+File Name                       : Minions1.jpeg
+Directory                       : .
+File Size                       : 6.8 KiB
+File Modification Date/Time     : 2021:01:09 07:17:17-05:00
+File Access Date/Time           : 2021:01:09 08:20:37-05:00
+File Inode Change Date/Time     : 2021:01:09 08:20:34-05:00
+File Permissions                : rw-rw-rw-
+File Type                       : JPEG
+File Type Extension             : jpg
+MIME Type                       : image/jpeg
+JFIF Version                    : 1.01
+Resolution Unit                 : None
+X Resolution                    : 1
+Y Resolution                    : 1
+Current IPTC Digest             : b9e8892a1b55650cf0a6341fe676d194
+Keywords                        : myadmin
+
+######### Notice myadmin ##########
+
+3. $ steghide extract -sf ./Minions1.jpeg
+Enter passphrase: 
+wrote extracted data to "raw.txt".
+### passphrase is myadmin ###
+
+4. $ cat raw.txt     
+AEMAVABGAGwAZQBhAHIAbgB7AHQAaABpAHMAXwBpAHMAXwBmAHUAbgB9
+
+5. decode base64
+
+
+The flag is: CTFlearn{this_is_fun}
+
