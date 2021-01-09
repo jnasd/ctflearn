@@ -1,0 +1,5 @@
+
+strings 3UWLBAUCb9Z2.jpg | grep flag
+
+
+<rdf:Description xmlns:MicrosoftPhoto="http://ns.microsoft.com/photo/1.0/"><MicrosoftPhoto:CameraSerialNumber>flag{EEe_x_I_FFf}</MicrosoftPhoto:CameraSerialNumber></rdf:Description></rdf:RDF>
