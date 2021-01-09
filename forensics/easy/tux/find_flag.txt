@@ -1,0 +1,21 @@
+
+1. $ file Tux.jpg      
+Tux.jpg: JPEG image data, JFIF standard 1.01, aspect ratio, density 1x1, segment length 16, comment: "ICAgICAgUGFzc3dvcmQ6IExpbnV4MTIzNDUK", baseline, precision 8, 196x216, components 3
+
+2. decode base64 ICAgICAgUGFzc3dvcmQ6IExpbnV4MTIzNDUK
+Password: Linux12345
+(try, it's not the flag, but it's important in the forth step.)
+
+3. $ binwalk Tux.jpg 
+DECIMAL       HEXADECIMAL     DESCRIPTION
+--------------------------------------------------------------------------------
+0             0x0             JPEG image data, JFIF standard 1.01
+5488          0x1570          Zip archive data, encrypted at least v1.0 to extract, compressed size: 39, uncompressed size: 27, name: flag
+5679          0x162F          End of Zip archive, footer length: 22
+
+4. $ foremost Tux.jpg;
+   $ ls output 
+   audit.txt  jpg  zip
+There is a file(name flag) in zip, open it(password is : Linux12345)
+   $ cat flag;
+CTFlearn{Linux_Is_Awesome}

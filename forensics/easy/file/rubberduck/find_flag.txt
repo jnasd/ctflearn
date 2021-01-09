@@ -1,0 +1,4 @@
+
+$ file RubberDuck.jpg                                                                                               1 ⨯
+RubberDuck.jpg: JPEG image data, JFIF standard 1.01, aspect ratio, density 72x72, segment length 16, comment: "CTFlearn{ILoveJakarta}", progressive, precision 8, 1536x2048, components 3
+
