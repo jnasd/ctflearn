@@ -1,0 +1,19 @@
+
+1. $ unzip gitIsGood.zip
+
+2. $ cd gitIsGood
+
+3. $ cat flag.txt 
+flag{REDACTED}				/* It's not the flag */
+
+4. $ git log -p
+diff --git a/flag.txt b/flag.txt
+index 8684e68..c5250d0 100644
+--- a/flag.txt
++++ b/flag.txt
+@@ -1 +1 @@
+-flag{protect_your_git}
++flag{REDACTED}
+
+
+The flag is:  flag{protect_your_git}

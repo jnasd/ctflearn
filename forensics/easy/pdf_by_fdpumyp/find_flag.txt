@@ -1,0 +1,30 @@
+
+1. $ hexdump dontopen.pdf -C > dontopen.hexdump
+
+2. watch the end of dontopen.hexdump
+
+00024a70  3e 3e 0a 73 74 72 65 61  6d 0a 3d 3d 20 53 45 43  |>>.stream.== SEC|
+00024a80  52 45 54 20 44 41 54 41  20 44 4f 4e 54 20 4c 4f  |RET DATA DONT LO|
+00024a90  4f 4b 20 41 54 20 54 48  49 53 20 3d 3d 0a 0a 65  |OK AT THIS ==..e|
+00024aa0  78 74 65 72 6e 61 6c 3a  51 31 52 47 62 47 56 68  |xternal:Q1RGbGVh|
+00024ab0  63 6d 35 37 4b 56 38 78  62 44 42 33 4d 33 6b 77  |cm57KV8xbDB3M3kw|
+00024ac0  56 57 30 77 4d 47 31 35  4d 54 49 7a 66 51 3d 3d  |VW0wMG15MTIzfQ==|
+00024ad0  0a 70 69 6e 3a 31 32 33  34 0a 70 61 73 73 77 6f  |.pin:1234.passwo|
+00024ae0  72 64 3a 4d 54 49 7a 4d  56 64 53 54 30 35 48 4f  |rd:MTIzMVdST05HO|
+00024af0  57 6c 7a 61 6d 52 75 55  45 46 54 55 31 64 50 55  |WlzamRuUEFTU1dPU|
+00024b00  6b 51 3d 0a 0a 65 6e 64  73 74 72 65 61 6d 0a 65  |kQ=..endstream.e|
+00024b10  6e 64 6f 62 6a 0a 0a 78  72 65 66 0a 38 20 31 0a  |ndobj..xref.8 1.|
+00024b20  30 30 30 30 31 34 39 38  37 37 20 30 30 30 30 30  |0000149877 00000|
+00024b30  20 6e 20 0a 31 33 20 31  0a 30 30 30 30 31 35 30  | n .13 1.0000150|
+00024b40  30 37 39 20 30 30 30 30  30 20 6e 20 0a 0a 74 72  |079 00000 n ..tr|
+00024b50  61 69 6c 65 72 0a 3c 3c  2f 53 69 7a 65 20 31 34  |ailer.<</Size 14|
+00024b60  2f 52 6f 6f 74 20 38 20  30 20 52 2f 49 6e 66 6f  |/Root 8 0 R/Info|
+00024b70  20 31 20 30 20 52 2f 50  72 65 76 20 31 34 39 35  | 1 0 R/Prev 1495|
+00024b80  33 39 3e 3e 0a 73 74 61  72 74 78 72 65 66 0a 31  |39>>.startxref.1|
+00024b90  35 30 32 39 35 0a 25 25  45 4f 46 0a              |50295.%%EOF.|
+
+3. decode base64
+Q1RGbGVhcm57KV8xbDB3M3kwVW0wMG15MTIzfQ==     	->  CTFlearn{)_1l0w3y0Um00my123}
+MTIzMVdST05HOWlzamRuUEFTU1dPUkQ=		->  1231WRONG9isjdnPASSWORD
+
+The flag is:   CTFlearn{)_1l0w3y0Um00my123}

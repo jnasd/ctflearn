@@ -1,0 +1,12 @@
+
+1. $ file Gandalf.jpg
+Gandalf.jpg: JPEG image data, JFIF standard 1.01, aspect ratio, density 1x1, segment length 16, comment: "Q1RGbGVhcm57eG9yX2lzX3lvdXJfZnJpZW5kfQo=", comment: "xD6kfO2UrE5SnLQ6WgESK4kvD/Y/rDJPXNU45k/p", comment: "h2riEIj13iAp29VUPmB+TadtZppdw3AuO7JRiDyU", baseline, precision 8, 225x225, components 3
+
+2. decode BASE64
+comment1: CTFlearn{xor_is_your_friend}
+
+3. xor comment2 and comment3, The result is unreadable.
+
+4. decode base64 comment2; decode base64 comment3;
+
+5. xor both decoders

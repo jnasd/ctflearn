@@ -1,0 +1,9 @@
+
+
+1. just unzip The_Flag.zip
+
+2. $ cat ThePassword.txt
+Nice Job!  The Password is "Im The Flag".
+
+3. use the password to open the The Flag.pdf
+The flag is:  ABCTF{T3Rm1n4l_is_C00l}
