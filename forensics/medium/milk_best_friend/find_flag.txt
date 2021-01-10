@@ -1,0 +1,24 @@
+
+1. $ binwalk oreo.jpg 
+
+DECIMAL       HEXADECIMAL     DESCRIPTION
+--------------------------------------------------------------------------------
+0             0x0             JPEG image data, JFIF standard 1.01
+9515          0x252B          RAR archive data, version 4.x, first volume type: MAIN_HEAD
+
+2. $ dd if=oreo.jpg of=1.rar skip=9515 bs=1
+6812+0 records in
+6812+0 records out
+6812 bytes (6.8 kB, 6.7 KiB) copied, 0.0157516 s, 432 kB/s
+
+3. $ unrar e ./1.rar 
+UNRAR 6.00 freeware      Copyright (c) 1993-2020 Alexander Roshal
+
+Extracting from ./1.rar
+
+Extracting  b.jpg                                                     OK 
+Extracting  a                                                         OK 
+All OK
+
+4. $ strings b.jpg | grep flag         
+Finally, flag{eat_more_oreos}
