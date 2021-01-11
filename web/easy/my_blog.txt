@@ -1,0 +1,10 @@
+
+
+1. open https://noxtal.com/
+2. firefox F12 -> storage -> localStorage -> https://noxtal.com -> flag: flag{n7f_l0c4l_570r463_15n7_53cur3_570r463}
+3. we can use console to get the flag:
+	F12 -> console
+	>> localStorage.getItem('ctf')
+	<< null
+	>> localStorage.getItem('flag')
+	<< "flag{n7f_l0c4l_570r463_15n7_53cur3_570r463}"

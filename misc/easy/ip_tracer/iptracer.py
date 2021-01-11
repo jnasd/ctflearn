@@ -6,7 +6,8 @@
 import geoip2.database
 
 # download newest GeoLite2-City.mmdb from https://www.maxmind.com/en/geoip2-city
-reader = geoip2.database.Reader('./GeoLite2-City.mmdb')
+#reader = geoip2.database.Reader('./GeoLite2-City.mmdb')
+reader = geoip2.database.Reader('/var/lib/king-phisher/GeoLite2-City.mmdb')     # kali has downloaded.
 response = reader.city('159.167.16.5')
 
 print(response.country.name)
