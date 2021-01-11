@@ -1,0 +1,11 @@
+
+1. https://ctflearn.com/challenge/robots.txt
+Not Found
+
+2. https://ctflearn.com/robots.txt
+
+User-agent: *
+Disallow: /70r3hnanldfspufdsoifnlds.html
+
+3. https://ctflearn.com/70r3hnanldfspufdsoifnlds.html
+CTFlearn{r0b0ts_4r3_th3_futur3}
