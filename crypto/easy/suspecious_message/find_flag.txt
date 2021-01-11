@@ -1,0 +1,7 @@
+This is Playfair cipher.
+
+1. open http://rumkin.com/tools/cipher/playfair.php
+2. Alphabet Key: qwertyuiopasdfghklzxcvbnm (according to the photo.png) 
+3. Your message: MQDzqdor{Ix4Oa41W_1F_B00h_m1YlqPpPP}
+4. This is your encoded or decoded text:
+CTFlearn{Pl4Yf41R_1S_C00l_c1PheRrRR}
