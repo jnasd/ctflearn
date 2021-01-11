@@ -1,0 +1,9 @@
+
+
+use cyberchef: https://www.chinabaiker.com/
+choose Vigenere Decode
+
+key is: 	blorpy
+input is: 	gwox{RgqssihYspOntqpxs}
+
+output(flag):	flag{CiphersAreAwesome}
