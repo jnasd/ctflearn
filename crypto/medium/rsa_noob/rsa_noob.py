@@ -40,7 +40,15 @@ def invmod(a, n):
 
 c = 9327565722767258308650643213344542404592011161659991421
 n = 245841236512478852752909734912575581815967630033049838269083
-e = 1                   # plaintext is the same to cihpertext
+e = 1
+"""
+    if e = 1 and c < n; then the cihpertext is the same to the plaintext, because:
+    rsa_encrypt  ciphertext = pow(plaintext, ekey, n)
+                            = plaintext ^ e % n
+                            = plaintext % n    (when e = 1)
+                            = plaintext        (when plaintext < n)
+    rsa_decrypt  pow(ciphertext, dkey, n) = ciphertext ^ d % n
+"""
 
 # Method1: p,q from http://factordb.com/index.php
 # Method2: In kali, factor n (spend over 1 hour, but no result...)
