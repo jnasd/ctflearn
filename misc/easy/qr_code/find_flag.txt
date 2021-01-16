@@ -1,0 +1,13 @@
+
+
+1. Scan the QR Code
+   https://qrcodegeneratorfree.com/
+   Result is : c3ludCB2ZiA6IGEwX29icWxfczBldHJnX2RlX3BicXI=
+
+2. Decode base64
+   synt vf : a0_obql_s0etrg_de_pbqr
+
+3. ROT13
+   https://www.chinabaiker.com/cyberchef.htm   -> ROT13(Amount 13)
+
+The flag is : n0_body_f0rget_qr_code
