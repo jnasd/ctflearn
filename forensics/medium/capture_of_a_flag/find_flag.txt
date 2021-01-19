@@ -1,0 +1,16 @@
+
+
+1. $ file flag4 
+flag4: pcapng capture file - version 1.01. 
+
+2. $ wireshark flag4		(in Kali)
+
+3. filter = tcp
+
+No.	Source		Destination		Protocol	Info
+247 	10.50.203.75 	185.21.216.190		HTTP		Get /?msg=ZmxhZ3tBRmxhZ0luUENBUH0= HTTP/1.1
+
+4. decode base64
+ZmxhZ3tBRmxhZ0luUENBUH0=
+
+flag{AFlagInPCAP}
