@@ -1,0 +1,45 @@
+
+1. binwalk AGT.png
+
+2. foremost AGT.png
+
+3. $ cd output/zip/
+
+4. $ ls zip 
+ 00000018.zip   00000296.zip   00000574.zip
+
+5. unzip three zip, check carefully, we find flag is in 00000574.zip at last.
+
+   $ unzip 00000574.zip
+Archive:  00000574.zip
+   creating: Secret Stuff.../
+  inflating: Secret Stuff.../.DS_Store  
+   creating: Secret Stuff.../Don't Open This.../
+  inflating: Secret Stuff.../Don't Open This.../.DS_Store  
+  inflating: Secret Stuff.../Don't Open This.../I Warned You.jpeg  
+   creating: __MACOSX/
+   creating: __MACOSX/Secret Stuff.../
+   creating: __MACOSX/Secret Stuff.../Don't Open This.../
+  inflating: __MACOSX/Secret Stuff.../Don't Open This.../._I Warned You.jpeg  
+                                                                                                       
+┌──(kali㉿kali)-[~/…/medium/07061/output/zip]
+└─$ ls
+ 00000018.zip   00000296.zip   00000574.zip   __MACOSX  'Secret Stuff...'
+                                                                                                       
+┌──(kali㉿kali)-[~/…/medium/07061/output/zip]
+└─$ cd Secret\ Stuff... 
+                                                                                                       
+┌──(kali㉿kali)-[~/…/07061/output/zip/Secret Stuff...]
+└─$ ls
+"Don't Open This..."
+                                                                                                       
+┌──(kali㉿kali)-[~/…/07061/output/zip/Secret Stuff...]
+└─$ cd Don\'t\ Open\ This... 
+                                                                                                       
+┌──(kali㉿kali)-[~/…/output/zip/Secret Stuff.../Don't Open This...]
+└─$ ls
+'I Warned You.jpeg'
+                                                                                                       
+┌──(kali㉿kali)-[~/…/output/zip/Secret Stuff.../Don't Open This...]
+└─$ strings I\ Warned\ You.jpeg| grep CTF
+ABCTF{Du$t1nS_D0jo}1r
