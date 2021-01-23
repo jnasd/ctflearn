@@ -1,0 +1,29 @@
+
+1. https://www.ntfs.com/gif-signature-format.htm
+GIF Signature Format: Introduction & Recovery
+
+Magic number (GIF87a) 	47 49 46 38 37 61
+
+2. $ file unopenable.gif
+unopenable.gif: data
+
+3. $ hexdump unopenable.gif -C |more
+00000000  39 61 f4 01 f4 01 f4 00  00 00 00 00 3a 00 00 00  |9a...
+The header is error
+
+4. $ hexeditor ./unopenable.gif
+Modify the header to 47 49 46 38 37 61
+Ctrl + x (hexeditor) to save and exit
+
+(use winhex in windows)
+
+5. $ ls
+find_flag.txt  unopenable.gif  unopenable_modify.gif
+   $ file unopenable_modify.gif
+unopenable_modify.gif: GIF image data, version 89a, 244 x
+
+6. open unopenable_modify.gif (open with ImageMagick)
+ZmxhZ3tnMWZfb3JfajFmfq==
+
+7. base64 decode
+The flag is:  flag{g1f_or_j1f~
