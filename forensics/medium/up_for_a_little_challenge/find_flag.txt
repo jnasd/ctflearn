@@ -1,0 +1,44 @@
+
+
+1. $ strings Begin_Hack.jpg | more
+- https://mega.nz/#!z8hACJbb!vQB569ptyQjNEoxIwHrUhwWu5WCj1JWmU-OFjf90Prg
+...
+real_unlock_key: Nothing Is As It SeemsU
+...
+password: Really? Again
+...
+flag{Not_So_Simple...}
+
+2. flag{Not_So_simple...} is not the flag
+
+3. download file from 
+https://mega.nz/#!z8hACJbb!vQB569ptyQjNEoxIwHrUhwWu5WCj1JWmU-OFjf90Prg
+
+4. $ unzip 'Up For A Little Challenge.zip'
+
+5. $ ls -alrt Did\ I\ Forget\ Again\?
+total 176
+-rw-r--r-- 1 kali kali 46482 Nov 30  2016  skycoder.jpg
+-rw-r--r-- 1 kali kali 32822 Nov 30  2016  .Processing.cerb4
+-rw-r--r-- 1 kali kali 83736 Nov 30  2016 'Loo Nothing Becomes Useless ack.jpg'
+drwxr-xr-x 4 kali kali  4096 Jan 22 21:06  ..
+drwxr-xr-x 2 kali kali  4096 Jan 22 21:18  .
+
+┌──(kali㉿kali)-[~/Desktop]
+└─$ file .Processing.cerb4
+.Processing.cerb4: Zip archive data, at least v2.0 to extract
+
+6. $ unzip .Processing.cerb4
+Archive:  .Processing.cerb4
+[.Processing.cerb4] skycoder.jpg password:
+
+try 1) Nothing Is As It SeemsU
+    2) Really? Again
+both wrong!
+the password is Nothing Is As It Seems         # No 'U'
+
+7. after unzip, skycoder.jpg
+
+8. open skycoder.jpg, enlarge it, and watch carefully(The lower left corner of the jpg)
+
+9. The flag is: flag{hack_complete}
