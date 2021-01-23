@@ -1,0 +1,16 @@
+
+1. $ wireshark ./data.pcap
+
+2. set filter http
+
+3. No.		105
+   Source	10.0.0.5
+   Destination	10.0.0.1
+   Protocol 	HTTP
+   Length	109
+   Info		POST /pages/main.html
+
+&Ruserid=hardawayn&pswrd=UEFwZHNqUlRhZQ%3D%3D
+
+4. base64 decode
+The flag is: PApdsjRTae
