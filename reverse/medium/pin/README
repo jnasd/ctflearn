@@ -1,0 +1,6 @@
+
+Ghidra is very strong for reverse engineering
+
+1. open https://ghidra-sre.org/
+2. download Ghidra v9.2.2(zip)
+3. unzip and run(kali has installed jdk automatically)
