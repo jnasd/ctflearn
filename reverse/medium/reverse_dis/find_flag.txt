@@ -35,4 +35,7 @@ undefined8 main(void)
   return 0;
 }
 
-3. The flag is AbCTF{r3vers1ng_dud3}
+3. $ gcc reverse_dis.c; ./a.out 
+(Notice python create_str.py >> tmp)
+
+4. The flag is AbCTF{r3vers1ng_dud3}
