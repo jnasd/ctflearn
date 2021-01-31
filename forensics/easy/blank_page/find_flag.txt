@@ -1,0 +1,30 @@
+
+refer to https://github.com/rishitsaiya/CTFlearn-Writeups/tree/master/Forensics/Blank Page
+
+step 1: hexdump ./TheMessage.txt -C |more
+
+00000000  20 e2 80 8f 20 20 20 e2  80 8f e2 80 8f 20 20 e2  | ...   ......  .|
+00000010  80 8f e2 80 8f e2 80 8f  20 20 e2 80 8f 20 20 e2  |........  ...  .|
+00000020  80 8f e2 80 8f 20 e2 80  8f e2 80 8f e2 80 8f e2  |..... ..........|
+00000030  80 8f 20 e2 80 8f e2 80  8f 20 e2 80 8f e2 80 8f  |.. ...... ......|
+00000040  20 e2 80 8f 20 20 e2 80  8f 20 20 20 20 20 20 e2  | ...  ...      .|
+00000050  80 8f 20 e2 80 8f 20 e2  80 8f 20 20 20 e2 80 8f  |.. ... ...   ...|
+00000060  e2 80 8f 20 e2 80 8f 20  20 20 20 e2 80 8f e2 80  |... ...    .....|
+
+0x20 is space, 0xe2 80 8f is dot(represents two states 0 and 1)
+
+It's not Morse code
+
+step 2: convert space to 0, dot to 1
+run convert.py
+
+
+step 3: use cyberchef
+ 
+From The Global Anti-Terrorists Tactics
+
+If you read this you passed. Congrats.
+Your first task will come tomorrow.
+Good luck.
+
+CTFlearn{If_y0u_r3/\d_thi5_you_pa553d}
